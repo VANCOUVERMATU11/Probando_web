@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Install ESLint
+      run: npm install eslint --save-dev
+    - name: Run ESLint
+      run: npx eslint .
+
+  api-call:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Make POST request
+      run: |
+        curl -X POST https://pokemon-api-vpmj.onrender.com/cards \
+        -H "Content-Type: application/json" \
+        -d '{
+          "nombre": "Charizard",
+          "tipo": "Fuego",
+          "faseEvolucion": "Fase 2",
+          "puntosSalud": 120,
+          "ataques": [
+            {
+              "nombre": "Lanzallamas",
+              "costoEnergia": ["Fuego", "Fuego", "Incolora"],
+              "danio": "100",
+              "descripcion": "Quema al Pokémon Defensor"
+            }
+          ]
+        }'
+
+  update-readme:
+    needs: api-call
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Update README
+      run: |
+        # Increment version
+        sed -i 's/Versión actual: v[0-9]\+\.[0-9]\+\.[0-9]\+/Versión actual: v1.0.1/' README.md
+        
+        # Add timestamp
+        echo -e "\nÚltima ejecución: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+        
+        # Configure git
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+        # Commit changes
+        git add README.md
+        git commit -m "Update version and timestamp"
+        git push
