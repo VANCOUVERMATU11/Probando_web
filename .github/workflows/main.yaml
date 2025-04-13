@@ -16,12 +16,28 @@ jobs:
       run: yarn eslint . --ext .js
 
   api-call:
-    needs: lint
+    # needs: lint
+    # Esto lo podríamos tener si quisieramos que se ejecute después del lint y solo si se linteó bien 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    
-    # API call steps will go here
+    - name: Hacer POST
+      run: echo Doing Something...
+          curl -X POST https://pokemon-api-vpmj.onrender.com/cards \
+          -d '{
+              "nombre": "Pokemon bakano",
+              "tipo": "Fuegooooooo",
+              "faseEvolucion": "Fase 24",
+              "puntosSalud": 690,
+              "ataques": [
+                {
+                  "nombre": "Lanzallamas",
+                  "costoEnergia": ["Fuego", "Fuego", "Incolora"],
+                  "danio": "100",
+                  "descripcion": "Quema al Pokémon Defensor"
+                }
+              ]
+            }'
+          echo "POST se ha hecho, esto aparece en el output de github?"
 
   update-readme:
     needs: api-call
