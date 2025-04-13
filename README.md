@@ -104,6 +104,6 @@ Versión actual: v1.0.0
 ¡Buena suerte! ⚙️
 
 
-
-
 Notas personales: Para todo esto ocupé la documentación: https://docs.github.com/en/actions 
+
+Para el ESLINT: ocupé la documentación de ESLINT: https://github.com/marketplace/actions/run-eslint
