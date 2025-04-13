@@ -46,6 +46,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Configurar Git
       run: |
         echo -e "\nÚltima ejecución: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
     
