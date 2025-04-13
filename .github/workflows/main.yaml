@@ -25,7 +25,8 @@ jobs:
           echo "SABEEEE"
           curl -X POST https://pokemon-api-vpmj.onrender.com/cards \
           -H "Content-Type: application/json" \
-          -d '{"nombre": "Agua",
+          -d '{"nombre": "Pokemon bakano",
+                  "tipo": "Agua",
                   "faseEvolucion": "Fase 24",
                   "puntosSalud": 690,
                   "ataques": [
