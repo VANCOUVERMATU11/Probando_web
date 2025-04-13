@@ -22,9 +22,9 @@ jobs:
     steps:
     - name: Hacer POST
       run: |
-          echo "SABEEEE \n" \
-          response_code=$(curl -s -o /dev/null -w "%{http_code}" \
+          echo "SABEEEE"
           curl -X POST https://pokemon-api-vpmj.onrender.com/cards \
+          -H "Content-Type: application/json" \
           -d '{"nombre": "Pokemon bakano",
                   "tipo": "Fuegooooooo",
                   "faseEvolucion": "Fase 24",
@@ -37,7 +37,7 @@ jobs:
                       "descripcion": "Quema al Pokémon Defensor"
                     }
                   ]
-                }')
+                }'
               echo "POST se ha hecho, esto aparece en el output de github?"
               echo "Código de respuesta recibido: $response_code"
 
