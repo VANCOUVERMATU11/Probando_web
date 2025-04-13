@@ -42,9 +42,10 @@ jobs:
               echo "Código de respuesta recibido: $response_code"
 
   update-readme:
-    needs: api-call
+    # needs: api-call
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      run: echo -e "\nÚltima ejecución: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
     
     # README update steps will go here
