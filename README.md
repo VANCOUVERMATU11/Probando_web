@@ -110,5 +110,6 @@ Para el ESLINT: ocupé la documentación de ESLINT: https://github.com/marketpla
 
 Para el POST OCupe 2 fuentes: https://stackoverflow.com/questions/67876177/triggering-github-action-using-a-post-request-github-rest-api
   y también: https://blog.nashtechglobal.com/trigger-a-github-action-with-an-http-request/
+  y también: https://superuser.com/questions/272265/getting-curl-to-output-http-status-code
   también para el debuggeo, DEEPSEEK me dijo que ocupara la "|"
 
