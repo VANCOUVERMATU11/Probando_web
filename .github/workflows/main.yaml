@@ -21,23 +21,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Hacer POST
-      run: echo Doing Something...
+      run: |
+          echo Doing Something...
           curl -X POST https://pokemon-api-vpmj.onrender.com/cards \
-          -d '{
-              "nombre": "Pokemon bakano",
-              "tipo": "Fuegooooooo",
-              "faseEvolucion": "Fase 24",
-              "puntosSalud": 690,
-              "ataques": [
-                {
-                  "nombre": "Lanzallamas",
-                  "costoEnergia": ["Fuego", "Fuego", "Incolora"],
-                  "danio": "100",
-                  "descripcion": "Quema al Pokémon Defensor"
-                }
-              ]
-            }'
-          echo "POST se ha hecho, esto aparece en el output de github?"
+          -d '{"nombre": "Pokemon bakano",
+                  "tipo": "Fuegooooooo",
+                  "faseEvolucion": "Fase 24",
+                  "puntosSalud": 690,
+                  "ataques": [
+                    {
+                      "nombre": "Lanzallamas",
+                      "costoEnergia": ["Fuego", "Fuego", "Incolora"],
+                      "danio": "100",
+                      "descripcion": "Quema al Pokémon Defensor"
+                    }
+                  ]
+                }'
+              echo "POST se ha hecho, esto aparece en el output de github?"
 
   update-readme:
     needs: api-call

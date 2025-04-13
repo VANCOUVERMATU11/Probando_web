@@ -107,3 +107,8 @@ Versión actual: v1.0.0
 Notas personales: Para todo esto ocupé la documentación: https://docs.github.com/en/actions 
 
 Para el ESLINT: ocupé la documentación de ESLINT: https://github.com/marketplace/actions/run-eslint
+
+Para el POST OCupe 2 fuentes: https://stackoverflow.com/questions/67876177/triggering-github-action-using-a-post-request-github-rest-api
+  y también: https://blog.nashtechglobal.com/trigger-a-github-action-with-an-http-request/
+  también para el debuggeo, DEEPSEEK me dijo que ocupara la "|"
+
