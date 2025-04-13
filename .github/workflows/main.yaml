@@ -22,8 +22,8 @@ jobs:
     steps:
     - name: Hacer POST
       run: |
-          echo "SABEEEE \n"
-          response_code=$(curl -s -o /dev/null -w "%{http_code}"
+          echo "SABEEEE \n" \
+          response_code=$(curl -s -o /dev/null -w "%{http_code}" \
           curl -X POST https://pokemon-api-vpmj.onrender.com/cards \
           -d '{"nombre": "Pokemon bakano",
                   "tipo": "Fuegooooooo",
