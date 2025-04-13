@@ -37,7 +37,7 @@ jobs:
                       "descripcion": "Quema al Pokémon Defensor"
                     }
                   ]
-                }'
+                }')
               echo "POST se ha hecho, esto aparece en el output de github?"
               echo "Código de respuesta recibido: $response_code"
 
