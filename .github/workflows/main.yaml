@@ -27,7 +27,7 @@ jobs:
           -H "Content-Type: application/json" \
           -d '{"nombre": "Pokemon bakano",
                   "tipo": "Agua",
-                  "faseEvolucion": "Fase 24",
+                  "faseEvolucion": "Fase 1",
                   "puntosSalud": 690,
                   "ataques": [
                     {
