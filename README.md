@@ -114,3 +114,4 @@ Para el POST OCupe 2 fuentes: https://stackoverflow.com/questions/67876177/trigg
   y también: https://superuser.com/questions/272265/getting-curl-to-output-http-status-code
   también para el debuggeo, DEEPSEEK me dijo que ocupara la "|"
 
+Finalmente, para la parte del time stamp y la de la version me ayudó DEEPSEEK. No logré ecnontrar documentación del tema. Lo siento :(.
