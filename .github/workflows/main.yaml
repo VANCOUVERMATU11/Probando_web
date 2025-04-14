@@ -54,19 +54,21 @@ jobs:
         
     - name: Actualizar versión en README
       run: |
-        # Busca la línea de versión y extrae el número actual
-        current_version=$(grep -oP 'Versión actual: v\d+\.\d+\.\d+' README.md | grep -oP '\d+\.\d+\.\d+')
+        # Extraer versión actual de forma segura
+        current_version=$(grep -m1 -oP 'Versión actual: v\d+\.\d+\.\d+' README.md | awk -F'v' '{print $2}')
         
-        # Incrementa el número de patch (último dígito)
-        new_version=$(echo $current_version | awk -F. '{$NF++; print}' OFS=.)
+        # Verificar que se encontró una versión
+        if [ -z "$current_version" ]; then
+          echo "Error: No se encontró el patrón de versión en README.md"
+          echo "Asegúrate de tener una línea como: Versión actual: v1.0.0"
+          exit 1
+        fi
         
-        # Reemplaza en el archivo
-        sed -i "s/Versión actual: v$current_version/Versión actual: v$new_version/" README.md
+        # Incrementar versión (patch)
+        IFS='.' read -r major minor patch <<< "$current_version"
+        new_version="$major.$minor.$((patch + 1))"
+        
+        # Actualizar archivo (versión compatible con todos los sistemas)
+        perl -i -pe 's/Versión actual: v\K\d+\.\d+\.\d+/'"$new_version"'/' README.md
         
         echo "Versión actualizada de v$current_version a v$new_version"
-        
-    - name: Commit y push de los cambios
-      run: |
-        git add README.md
-        git commit -m "Auto-increment version to v$(grep -oP 'Versión actual: v\d+\.\d+\.\d+' README.md | grep -oP '\d+\.\d+\.\d+') [skip ci]"
-        git push
