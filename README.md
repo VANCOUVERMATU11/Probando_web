@@ -99,7 +99,7 @@ Tu solución debe cumplir con los siguientes criterios:
 
 ---
 
-Versión actual: v1.0.0
+Version actual: v1.0.0
 
 ¡Buena suerte! ⚙️
 
