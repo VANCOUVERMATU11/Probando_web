@@ -99,8 +99,8 @@ Tu solución debe cumplir con los siguientes criterios:
 
 ---
 
-Version actual: v1.0.3
-Ultima ejecucion: 2025-04-14 00:27:59 UTC
+Version actual: v1.0.4
+Ultima ejecucion: 2025-06-14 01:16:35 UTC
 
 ¡Buena suerte! ⚙️
 
